@@ -1,0 +1,7 @@
+main: itempackage.Items
+name: FallenItems
+version: 1.0
+loadbefore: 
+  - Fallen
+  - Enchant_Refinery
+  - ClassShops
