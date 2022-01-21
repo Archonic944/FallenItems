@@ -17,7 +17,7 @@
         <dependency>
             <groupId>com.github.CobbleSword.NachoSpigot</groupId>
             <artifactId>api</artifactId>
-            <version>e48db52338</version>
+            <version>57e8295c68</version>
         </dependency>
         <dependency>
             <groupId>xyz.fallenmc</groupId>
