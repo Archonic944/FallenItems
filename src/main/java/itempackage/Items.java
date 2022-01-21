@@ -12,13 +12,14 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.LeatherArmorMeta;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-public class Items {
+public class Items extends JavaPlugin {
     public static ItemStack getScoutGoggles(){
         ItemStack scoutgoggles = new ItemStack(Material.DIAMOND_HELMET);
         ItemMeta sgm = scoutgoggles.getItemMeta();
