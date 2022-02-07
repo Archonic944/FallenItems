@@ -620,6 +620,6 @@ public class Items extends JavaPlugin {
     }
 
     private static List<String> fallenLore(String piece){
-        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core with /risenboss, or through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection X");
+        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection X");
     }
 }
