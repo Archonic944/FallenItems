@@ -562,7 +562,7 @@ public class Items extends JavaPlugin {
     public static ItemStack getFallenHelmet(){
         ItemStack item = MiscUtils.generateItem(Material.LEATHER_HELMET,
                 ChatColor.GOLD + "Fallen Helmet",
-                fallenLore(),
+                fallenLore("helmet"),
                 (byte) -1,
                 1, "FALLEN_HELMET", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
@@ -577,7 +577,7 @@ public class Items extends JavaPlugin {
     public static ItemStack getFallenChestplate(){
         ItemStack item = MiscUtils.generateItem(Material.LEATHER_CHESTPLATE,
                 ChatColor.GOLD + "Fallen Chestplate",
-                fallenLore(),
+                fallenLore("chestplate"),
                 (byte) -1,
                 1, "FALLEN_CHESTPLATE", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
@@ -592,7 +592,7 @@ public class Items extends JavaPlugin {
     public static ItemStack getFallenLeggings(){
         ItemStack item = MiscUtils.generateItem(Material.LEATHER_LEGGINGS,
                 ChatColor.GOLD + "Fallen Leggings",
-                fallenLore(),
+                fallenLore("leggings"),
                 (byte) -1,
                 1, "FALLEN_LEGGINGS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
@@ -607,7 +607,7 @@ public class Items extends JavaPlugin {
     public static ItemStack getFallenBoots(){
         ItemStack item = MiscUtils.generateItem(Material.LEATHER_BOOTS,
                 ChatColor.GOLD + "Fallen Boots",
-                fallenLore(),
+                fallenLore("boots"),
                 (byte) -1,
                 1, "FALLEN_BOOTS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
@@ -619,7 +619,7 @@ public class Items extends JavaPlugin {
         return item;
     }
 
-    private static List<String> fallenLore(){
-        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe boots worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core with /risenboss, or through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection X");
+    private static List<String> fallenLore(String piece){
+        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core with /risenboss, or through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection X");
     }
 }
