@@ -567,7 +567,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_HELMET", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -582,7 +582,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_CHESTPLATE", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -597,7 +597,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_LEGGINGS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -612,7 +612,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_BOOTS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 10, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -620,6 +620,6 @@ public class Items extends JavaPlugin {
     }
 
     private static List<String> fallenLore(String piece){
-        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection X");
+        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection VIII");
     }
 }
