@@ -20,16 +20,13 @@ import java.util.List;
 import java.util.UUID;
 
 public class Items extends JavaPlugin {
+    public static final double STARTER_WPH = 0.2;
     public static ItemStack getScoutGoggles(){
         ItemStack scoutgoggles = new ItemStack(Material.DIAMOND_HELMET);
         ItemMeta sgm = scoutgoggles.getItemMeta();
-        sgm.setDisplayName(ChatColor.GREEN + "Scout Goggles");
-        ArrayList<String> sglore = new ArrayList<>();
-        sglore.add(" ");
-        sglore.add(ChatColor.GREEN + "Passive Ability: Clarity");
-        sglore.add(ChatColor.DARK_GRAY + "While wearing, provides the ability to see invisible players.");
-        sgm.setLore(sglore);
-        sgm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+        sgm.setDisplayName(ChatColor.AQUA + "Scout Goggles");
+        sgm.setLore(StringUtil.wrapLore("\n" + ChatColor.GREEN + "Passive Ability: Clarity\n" + ChatColor.DARK_GRAY + "While wearing, provides the ability to see invisible players."));
+        sgm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         sgm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         sgm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
 
@@ -69,7 +66,7 @@ public class Items extends JavaPlugin {
         customattr.setString("UUID", UUID.randomUUID().toString());
         customattr.setBoolean("CAN_ENCHANT", false);
         customattr.setDouble("WEIGHT", 0.00);
-        customattr.setDouble("WEIGHT_ADD", 0.01);
+        customattr.setDouble("WEIGHT_ADD", STARTER_WPH);
 
         return mwnbt.getItem();
     }
@@ -117,7 +114,7 @@ public class Items extends JavaPlugin {
         nbtvscomp.setBoolean("CAN_ENCHANT", true);
 
         nbtvscomp.setDouble("WEIGHT", 0.00);
-        nbtvscomp.setDouble("WEIGHT_ADD", 0.01);
+        nbtvscomp.setDouble("WEIGHT_ADD", STARTER_WPH);
 
         return nbtvs.getItem();
     }
@@ -149,7 +146,7 @@ public class Items extends JavaPlugin {
         dml.add(ChatColor.BLUE + "Attack Ability: Short Range");
         dml.add(ChatColor.DARK_GRAY + "This item is incredibly short range!");
         dml.add(ChatColor.DARK_GRAY + "You can only hit players within " + ChatColor.BLUE + "1 block" + ChatColor.DARK_GRAY + " from you,");
-        dml.add(ChatColor.DARK_GRAY + "but you deal " + ChatColor.BLUE + "8.5" + " damage.");
+        dml.add(ChatColor.DARK_GRAY + "but has a " + ChatColor.BLUE + "2x" + " damage bonus.");
         dm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE);
         dm.setLore(dml);
         dagger.setItemMeta(dm);
@@ -160,9 +157,9 @@ public class Items extends JavaPlugin {
         customAttributes.setString("ID", "SCOUT_DAGGER");
         customAttributes.setString("UUID", UUID.randomUUID().toString());
         customAttributes.setBoolean("CAN_ENCHANT", true);
+        customAttributes.setFloat("ATTACK", 2f);
         customAttributes.setDouble("WEIGHT", 0.00);
-        customAttributes.setDouble("WEIGHT_ADD", 0.01);
-
+        customAttributes.setDouble("WEIGHT_ADD", STARTER_WPH);
         di.setByte("Unbreakable",(byte)1);
 
 
@@ -214,7 +211,7 @@ public class Items extends JavaPlugin {
         cbComp.setString("UUID", UUID.randomUUID() + "");
         cbComp.setBoolean("CAN_ENCHANT", true);
         cbComp.setDouble("WEIGHT", 0.00);
-        cbComp.setDouble("WEIGHT_ADD", 0.01);
+        cbComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return cbNbt.getItem();
     }
     public static ItemStack getWizardBlade(){
@@ -239,7 +236,7 @@ public class Items extends JavaPlugin {
         bladeComp.setBoolean("CAN_ENCHANT", true);
         bladeComp.setInteger("CHARGE", 0);
         bladeComp.setDouble("WEIGHT", 0.00);
-        bladeComp.setDouble("WEIGHT_ADD", 0.01);
+        bladeComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return bladeNbt.getItem();
     }
     public static ItemStack getFirstAidKit(){
@@ -311,14 +308,8 @@ public class Items extends JavaPlugin {
         ItemStack sbItem = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta sbMeta = sbItem.getItemMeta();
         sbMeta.setDisplayName(ChatColor.DARK_BLUE + "Scout Blade");
-        sbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        ArrayList<String> sbLore = new ArrayList<>();
-        sbLore.add("");
-        sbLore.add(ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss");
-        sbLore.add(ChatColor.GRAY + "Upon hitting a player, if they are facing away,");
-        sbLore.add(ChatColor.GRAY + "they will receive blindness for 1 second.");
-        sbLore.add(ChatColor.DARK_GRAY + "Cooldown: 17 seconds");
-        sbMeta.setLore(sbLore);
+        sbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are facing away, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "Cooldown: 17 seconds"));
         sbItem.setItemMeta(sbMeta);
         NBTItem sbNBT = new NBTItem(sbItem);
         sbNBT.setBoolean("Unbreakable", true);
@@ -327,7 +318,7 @@ public class Items extends JavaPlugin {
         sbComp.setString("ID", "SCOUT_BLADE");
         sbComp.setBoolean("CAN_ENCHANT", true);
         sbComp.setDouble("WEIGHT", 0.00);
-        sbComp.setDouble("WEIGHT_ADD", 0.01);
+        sbComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return sbNBT.getItem();
     }
     public static ItemStack getBludgeon() {
@@ -349,7 +340,7 @@ public class Items extends JavaPlugin {
         blComp.setString("ID", "BLUDGEON");
         blComp.setBoolean("CAN_ENCHANT", true);
         blComp.setDouble("WEIGHT", 0.00);
-        blComp.setDouble("WEIGHT_ADD", 0.01);
+        blComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return blNBT.getItem();
     }
     public static ItemStack getStomper() {
@@ -362,7 +353,7 @@ public class Items extends JavaPlugin {
         stompMeta.setDisplayName(ChatColor.DARK_AQUA + "Stomper");
         stomplore.add(ChatColor.GRAY + "Ability: " + ChatColor.DARK_AQUA + "Ground-Pound");
         stomplore.add(ChatColor.GRAY + "Double-punch the same block to release a shock wave, damaging the closest enemy");
-        stomplore.add(ChatColor.GRAY + "(max of 7 blocks) for 4 armor-ignoring damage, and launching them upwards.");
+        stomplore.add(ChatColor.GRAY + "(max of 7 blocks) for 4 true damage, and launching them upwards.");
         stomplore.add(ChatColor.DARK_GRAY + "Cooldown: 7 seconds");
         stompMeta.setLore(stomplore);
         stompItem.setItemMeta(stompMeta);
@@ -374,7 +365,7 @@ public class Items extends JavaPlugin {
         stompComp.setString("ID", "STOMPER");
         stompComp.setDouble("WEIGHT", 0.00);
         stompComp.setDouble("WEIGHT", 0.00);
-        stompComp.setDouble("WEIGHT_ADD", 0.01);
+        stompComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return stompNBT.getItem();
     }
     public static ItemStack getProteinSnack(){
@@ -382,17 +373,14 @@ public class Items extends JavaPlugin {
         snack.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ArrayList<String> proteinLore = new ArrayList<>();
         snackMeta.setDisplayName(ChatColor.DARK_GREEN + "Protein Snack");
-        proteinLore.add("");
-        proteinLore.add(ChatColor.GRAY + "Snack on one of these protein-packed treats");
-        proteinLore.add(ChatColor.GRAY + "to deal +20% knockback to your opponent on your next swing!");
-        snackMeta.setLore(proteinLore);
+        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Snack on one of these protein-packed treats to hoist your opponent upwards on your next swing!\n" + ChatColor.DARK_GRAY + "Now that's what I call lifting!"));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
         NBTCompound snackCompound = snackNBT.addCompound("CustomAttributes");
         snackCompound.setBoolean("CAN_ENCHANT", false);
         snackCompound.setString("ID", "PROTEIN_SNACK");
+        snackCompound.setBoolean("USABLE", true);
         return snackNBT.getItem();
     }
     public static ItemStack getLavaCake(){
@@ -400,17 +388,14 @@ public class Items extends JavaPlugin {
         snack.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ArrayList<String> proteinLore = new ArrayList<>();
         snackMeta.setDisplayName(ChatColor.RED + "Lava Cake");
-        proteinLore.add("");
-        proteinLore.add(ChatColor.GRAY + "I know, I know, this \"Lava Cake\" doesn't exactly look it's name,");
-        proteinLore.add(ChatColor.GRAY + "but trust me: eating this will power your next hit to do 3 extra damage!");
-        snackMeta.setLore(proteinLore);
+        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "I know, I know, this \"Lava Cake\" doesn't exactly look it's name, but trust me: eating this will power your next hit to do 3 extra damage!", 35));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
         NBTCompound snackCompound = snackNBT.addCompound("CustomAttributes");
         snackCompound.setBoolean("CAN_ENCHANT", false);
         snackCompound.setString("ID", "LAVA_CAKE");
+        snackCompound.setBoolean("USABLE", true);
         return snackNBT.getItem();
     }
     public static ItemStack getMagicSnack(){
@@ -418,18 +403,14 @@ public class Items extends JavaPlugin {
         snack.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ArrayList<String> proteinLore = new ArrayList<>();
         snackMeta.setDisplayName(ChatColor.DARK_BLUE + "Magic Snack");
-        proteinLore.add("");
-        proteinLore.add(ChatColor.GRAY + "Munching on this strangely delicious snack will power up");
-        proteinLore.add(ChatColor.GRAY + "your next hit to inflict 2 seconds of weakness 1 and speed 1");
-        proteinLore.add(ChatColor.GRAY + "on your opponent! " + ChatColor.ITALIC + "Wonder if it's FDA approved...");
-        snackMeta.setLore(proteinLore);
+        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Munching on this strangely delicious snack will power up your next hit to inflict 2 seconds of weakness 1 and speed 1 on your opponent! " + ChatColor.ITALIC + "Wonder if it's FDA approved...", 35));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
         NBTCompound snackCompound = snackNBT.addCompound("CustomAttributes");
         snackCompound.setBoolean("CAN_ENCHANT", false);
         snackCompound.setString("ID", "MAGIC_SNACK");
+        snackCompound.setBoolean("USABLE", true);
         return snackNBT.getItem();
     }
     public static ItemStack getEnergySnack(){
@@ -437,17 +418,14 @@ public class Items extends JavaPlugin {
         snack.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ArrayList<String> proteinLore = new ArrayList<>();
         snackMeta.setDisplayName(ChatColor.BLUE + "Energy Bar");
-        proteinLore.add("");
-        proteinLore.add(ChatColor.GRAY + "Consuming this energy bar will grant you speed 1 for 2 seconds on your next");
-        proteinLore.add(ChatColor.GRAY + "hit! It'll probably have some negative effects on your well-being (not actually, though)");
-        snackMeta.setLore(proteinLore);
+        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Consuming this energy bar will grant you speed 1 for 2 seconds on your next hit! It'll probably have some negative effects on your well-being, though...*\n\n" + ChatColor.DARK_GRAY + "*Does not actually have negative effects on your well-being.", 35));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
         NBTCompound snackCompound = snackNBT.addCompound("CustomAttributes");
         snackCompound.setBoolean("CAN_ENCHANT", false);
         snackCompound.setString("ID", "ENERGY_SNACK");
+        snackCompound.setBoolean("USABLE", true);
         return snackNBT.getItem();
     }
     public static ItemStack getSpecialHammer() {
@@ -457,12 +435,7 @@ public class Items extends JavaPlugin {
         sphammermeta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 1, false);
         sphammermeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
         sphammermeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        ArrayList<String> sphammerlore = new ArrayList<String>();
-        sphammerlore.add("");
-        sphammerlore.add(ChatColor.GOLD + "A special hammer obtained from XP milestones. It can be used");
-        sphammerlore.add(ChatColor.GOLD + "at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.GOLD + "to level up enchanted books!");
-        sphammerlore.add(ChatColor.DARK_GRAY + "This hammer can grant your book a maximum of " + ChatColor.BLUE + "5 " + ChatColor.DARK_GRAY + "levels.");
-        sphammermeta.setLore(sphammerlore);
+        sphammermeta.setLore(StringUtil.wrapLore(ChatColor.GOLD + "A special hammer obtained from EXP milestones or boss fights. It can be used at the " + ChatColor.RED + "Enchant Refinery" + ChatColor.GOLD + " to level up enchanted books!\n" + ChatColor.DARK_GRAY + "This type of hammer can level up your book a maximum of " + ChatColor.BLUE + "5" + ChatColor.DARK_GRAY + " levels.", 30));
         sphammeritem.setItemMeta(sphammermeta);
         NBTItem nbtItem = new NBTItem(sphammeritem);
         NBTCompound nbtComp = nbtItem.addCompound("CustomAttributes");
@@ -478,12 +451,7 @@ public class Items extends JavaPlugin {
         ItemStack dhammeritem = new ItemStack(Material.DIAMOND_HOE);
         ItemMeta dhammermeta = dhammeritem.getItemMeta();
         dhammermeta.setDisplayName(ChatColor.AQUA + "Diamond Hammer");
-        ArrayList<String> dhammerlore = new ArrayList<String>();
-        dhammerlore.add("");
-        dhammerlore.add(ChatColor.WHITE + "A hammer obtained from a rare drop from killing players, by completing quests, or from daily rewards.");
-        dhammerlore.add(ChatColor.WHITE + "It can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.WHITE + "to level up enchanted books!");
-        dhammerlore.add(ChatColor.DARK_GRAY + "This hammer can grant your book a maximum of " + ChatColor.BLUE + "4 " + ChatColor.DARK_GRAY + "levels.");
-        dhammermeta.setLore(dhammerlore);
+        dhammermeta.setLore(StringUtil.wrapLore("\n" + ChatColor.WHITE + "A rare hammer obtained from EXP Milestones or bosses. It can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.WHITE + "to level up enchanted books!\n" + ChatColor.DARK_GRAY + "This type of hammer can level up your book a maximum of " + ChatColor.BLUE + "4" + ChatColor.DARK_GRAY + " levels.", 30));
         dhammeritem.setItemMeta(dhammermeta);
         NBTItem NBTItem = new NBTItem(dhammeritem);
         NBTCompound NBTComp = NBTItem.addCompound("CustomAttributes");
@@ -498,12 +466,7 @@ public class Items extends JavaPlugin {
         ItemStack ihammeritem = new ItemStack(Material.IRON_HOE);
         ItemMeta ihammermeta = ihammeritem.getItemMeta();
         ihammermeta.setDisplayName(ChatColor.AQUA + "Iron Hammer");
-        ArrayList<String> ihammerlore = new ArrayList<String>();
-        ihammerlore.add("");
-        ihammerlore.add(ChatColor.WHITE + "A hammer obtained as a rare drop from killing players, by completing quests, or from daily rewards.");
-        ihammerlore.add(ChatColor.WHITE + "It can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.WHITE + "to level up enchanted books!");
-        ihammerlore.add(ChatColor.DARK_GRAY + "This hammer can grant your book a maximum of " + ChatColor.BLUE + "3 " + ChatColor.DARK_GRAY + "levels.");
-        ihammermeta.setLore(ihammerlore);
+        ihammermeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "A hammer obtained from EXP Milestones or boss fights. Can be used at the " + ChatColor.RED + "Enchant Refinery" + ChatColor.GRAY + " to level up enchanted books!\n" + ChatColor.DARK_GRAY + "This type of hammer can upgrade your books a maximum of " + ChatColor.BLUE + "3" + ChatColor.GRAY + " levels.", 30));
         ihammeritem.setItemMeta(ihammermeta);
         NBTItem NBTItem = new NBTItem(ihammeritem);
         NBTCompound NBTComp = NBTItem.addCompound("CustomAttributes");
@@ -519,12 +482,7 @@ public class Items extends JavaPlugin {
         ItemStack sthammeritem = new ItemStack(Material.STONE_HOE);
         ItemMeta sthammermeta = sthammeritem.getItemMeta();
         sthammermeta.setDisplayName(ChatColor.AQUA + "Stone Hammer");
-        ArrayList<String> sthammerlore = new ArrayList<String>();
-        sthammerlore.add("");
-        sthammerlore.add(ChatColor.WHITE + "A hammer obtained as a rare drop from killing players, by completing quests, or from daily rewards.");
-        sthammerlore.add(ChatColor.WHITE + "It can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.WHITE + "to level up enchanted books!");
-        sthammerlore.add(ChatColor.DARK_GRAY + "This hammer can grant your book a maximum of " + ChatColor.BLUE + "2 " + ChatColor.DARK_GRAY + "levels.");
-        sthammermeta.setLore(sthammerlore);
+        sthammermeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "A hammer obtained from EXP Milestones. Can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.GRAY + "to level up enchanted books!\n" + ChatColor.DARK_GRAY + "This hammer can level up your books a maximum of " + ChatColor.BLUE + "2 " + ChatColor.DARK_GRAY + "levels.", 30));
         sthammeritem.setItemMeta(sthammermeta);
         NBTItem NBTItem = new NBTItem(sthammeritem);
         NBTCompound NBTComp = NBTItem.addCompound("CustomAttributes");
@@ -540,12 +498,7 @@ public class Items extends JavaPlugin {
         ItemStack wdhammeritem = new ItemStack(Material.WOOD_HOE);
         ItemMeta wdhammermeta = wdhammeritem.getItemMeta();
         wdhammermeta.setDisplayName(ChatColor.AQUA + "Wood Hammer");
-        ArrayList<String> wdhammerlore = new ArrayList<>();
-        wdhammerlore.add("");
-        wdhammerlore.add(ChatColor.WHITE + "A hammer obtained as a rare drop from killing players, by completing quests, or from daily rewards.");
-        wdhammerlore.add(ChatColor.WHITE + "It can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.WHITE + "to level up enchanted books!");
-        wdhammerlore.add(ChatColor.DARK_GRAY + "This hammer can grant your book a maximum of " + ChatColor.BLUE + "1 " + ChatColor.DARK_GRAY + "levels.");
-        wdhammermeta.setLore(wdhammerlore);
+        wdhammermeta.setLore(StringUtil.wrapLore( "\n" + ChatColor.GRAY + "A hammer obtained from EXP Milestones. Can be used at the " + ChatColor.RED + "Enchant Refinery " + ChatColor.GRAY + "to level up enchanted books!\n" + ChatColor.DARK_GRAY + "This type of hammer can level up your book a maximum of " + ChatColor.BLUE + "1" + ChatColor.DARK_GRAY + " level.", 30));
         wdhammeritem.setItemMeta(wdhammermeta);
         NBTItem NBTItem = new NBTItem(wdhammeritem);
         NBTCompound NBTComp = NBTItem.addCompound("CustomAttributes");
@@ -554,7 +507,6 @@ public class Items extends JavaPlugin {
         NBTComp.setInteger("DOWNGRADE_CHANCE", 40);
         NBTComp.setString("UUID", UUID.randomUUID().toString());
         return NBTItem.getItem().clone();
-
     }
 
     private static final Color FALLEN_ARMOR_COLOR = Color.fromRGB(10, 10, 10);
