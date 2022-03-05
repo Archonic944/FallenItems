@@ -87,44 +87,29 @@ public class Items extends JavaPlugin {
     public static ItemStack getVolcanicSword(){
 
         ItemStack vs = new ItemStack(Material.IRON_SWORD);
+        vs.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta vsm = vs.getItemMeta();
-        ArrayList<String> vslist = new ArrayList<>();
-
         vsm.setDisplayName(ChatColor.RED + "Volcanic Sword");
-
-        vslist.add(" ");
-        vslist.add(ChatColor.RED + "Streak Ability: Erupt");
-        vslist.add(ChatColor.DARK_GRAY + "Every" + ChatColor.RED + " 5 " + ChatColor.DARK_GRAY + "kills with this item,");
-        vslist.add(ChatColor.DARK_GRAY + "all players within a" + ChatColor.RED + " 5 " + ChatColor.DARK_GRAY + "block radius");
-        vslist.add(ChatColor.DARK_GRAY + "are shot away in a" + ChatColor.RED + " massive " + ChatColor.DARK_GRAY + "explosion!");
-
-
-        vsm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        vsm.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        vsm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-
-        vsm.setLore(vslist);
+        vsm.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
+        vsm.setLore(StringUtil.wrapLore("\n" + ChatColor.RED + "Streak ability: Erupt\n" + ChatColor.DARK_GRAY + "Every" + ChatColor.RED + " 5 " + ChatColor.DARK_GRAY + "kills with this item, all players within a " + ChatColor.RED + "15" + ChatColor.DARK_GRAY + " block radius are damaged and knocked away in a massive " + ChatColor.RED + "EXPLOSION" + ChatColor.DARK_GRAY + "!\n" + ChatColor.GRAY + "Sharpness II"));
         vs.setItemMeta(vsm);
-
         NBTItem nbtvs = new NBTItem(vs);
         nbtvs.setByte("Unbreakable", (byte) 1);
         NBTCompound nbtvscomp = nbtvs.addCompound("CustomAttributes");
         nbtvscomp.setString("ID", "VOLCANIC_SWORD");
         nbtvscomp.setString("UUID", UUID.randomUUID().toString());
         nbtvscomp.setBoolean("CAN_ENCHANT", true);
-
         nbtvscomp.setDouble("WEIGHT", 0.00);
         nbtvscomp.setDouble("WEIGHT_ADD", STARTER_WPH);
-
         return nbtvs.getItem();
     }
 
     public static ItemStack getRisenBlade(){
         ItemStack risenBlade = new ItemStack(Material.DIAMOND_SWORD);
-        risenBlade.addEnchantment(Enchantment.DAMAGE_ALL, 2);
+        risenBlade.addEnchantment(Enchantment.DAMAGE_ALL, 3);
         ItemMeta bladeMeta = risenBlade.getItemMeta();
         bladeMeta.setDisplayName(ChatColor.GREEN + "Risen Blade");
-        bladeMeta.setLore(Arrays.asList("", ChatColor.RED + "The weapon of choice of the risen deities.", ChatColor.GOLD + "Sharpness II"));
+        bladeMeta.setLore(Arrays.asList("", ChatColor.RED + "The weapon of choice of the risen deities.", ChatColor.GOLD + "Sharpness III"));
         bladeMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         bladeMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         risenBlade.setItemMeta(bladeMeta);
@@ -137,16 +122,17 @@ public class Items extends JavaPlugin {
     }
 
     public static ItemStack getDagger(){
-        ItemStack dagger = new ItemStack(Material.DIAMOND_SWORD,1);
+        ItemStack dagger = new ItemStack(Material.IRON_SWORD,1);
+        dagger.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta dm = dagger.getItemMeta();
         ArrayList<String> dml = new ArrayList<>();
-
-        dm.setDisplayName(ChatColor.BLUE + "Dagger");
+        dm.setDisplayName(ChatColor.AQUA + "Dagger");
         dml.add(" ");
         dml.add(ChatColor.BLUE + "Attack Ability: Short Range");
         dml.add(ChatColor.DARK_GRAY + "This item is incredibly short range!");
         dml.add(ChatColor.DARK_GRAY + "You can only hit players within " + ChatColor.BLUE + "1 block" + ChatColor.DARK_GRAY + " from you,");
         dml.add(ChatColor.DARK_GRAY + "but has a " + ChatColor.BLUE + "2x" + " damage bonus.");
+        dml.add(ChatColor.GRAY + "Sharpness II");
         dm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE);
         dm.setLore(dml);
         dagger.setItemMeta(dm);
@@ -194,14 +180,16 @@ public class Items extends JavaPlugin {
     public static ItemStack getCorruptedSword(){
         ItemStack cblade = new ItemStack(Material.IRON_SWORD);
         ItemMeta cbMeta = cblade.getItemMeta();
+        cbMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
         cbMeta.setDisplayName(ChatColor.RED + "Corrupted Sword");
         ArrayList<String> cbList = new ArrayList<>();
         cbList.add(" ");
         cbList.add(ChatColor.RED + "Ability: Combo-Stacker");
         cbList.add(ChatColor.GRAY + "The more hits you get against your opponent in a row,");
         cbList.add(ChatColor.GRAY + "the higher your damage will be multiplied.");
-        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "0.2x" + ChatColor.GRAY + " damage added to your multiplier per hit (in a row).");
-        cbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES);
+        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "0.2x" + ChatColor.GRAY + " damage added to your multiplier per hit.");
+        cbList.add(ChatColor.GRAY + "Sharpness I");
+        cbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
         cbMeta.setLore(cbList);
         cblade.setItemMeta(cbMeta);
         NBTItem cbNbt = new NBTItem(cblade);
@@ -215,10 +203,11 @@ public class Items extends JavaPlugin {
         return cbNbt.getItem();
     }
     public static ItemStack getWizardBlade(){
-        ItemStack bladeitem = new ItemStack(Material.IRON_SWORD);
+        ItemStack bladeitem = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta bladeMeta = bladeitem.getItemMeta();
+        bladeMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
         bladeMeta.setDisplayName(ChatColor.DARK_BLUE + "Wizard Blade (0)");
-        bladeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE);
+        bladeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
         ArrayList<String> lore = new ArrayList<>();
         lore.add(" ");
         lore.add(ChatColor.BLUE + "Ability: Charge-Up");
@@ -226,6 +215,8 @@ public class Items extends JavaPlugin {
         lore.add(ChatColor.DARK_GRAY + "damage will be added to the sword's charge.");
         lore.add(ChatColor.DARK_GRAY + "Release the charge by right clicking a player.");
         lore.add(ChatColor.GRAY + "Max Charge: 10");
+        lore.add("");
+        lore.add(ChatColor.GRAY + "Sharpness I");
         bladeMeta.setLore(lore);
         bladeitem.setItemMeta(bladeMeta);
         NBTItem bladeNbt = new NBTItem(bladeitem);
@@ -306,10 +297,11 @@ public class Items extends JavaPlugin {
     }
     public static ItemStack getScoutBlade(){
         ItemStack sbItem = new ItemStack(Material.DIAMOND_SWORD);
+        sbItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta sbMeta = sbItem.getItemMeta();
         sbMeta.setDisplayName(ChatColor.DARK_BLUE + "Scout Blade");
         sbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are facing away, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "Cooldown: 17 seconds"));
+        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are facing away, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "Cooldown: 17 seconds\n§7Sharpness II"));
         sbItem.setItemMeta(sbMeta);
         NBTItem sbNBT = new NBTItem(sbItem);
         sbNBT.setBoolean("Unbreakable", true);
@@ -323,15 +315,11 @@ public class Items extends JavaPlugin {
     }
     public static ItemStack getBludgeon() {
         ItemStack blItem = new ItemStack(Material.IRON_AXE);
+        blItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta blMeta = blItem.getItemMeta();
-        blMeta.setDisplayName(ChatColor.AQUA + "Bludgeon");
-        blMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        ArrayList<String> blLore = new ArrayList<>();
-        blLore.add("");
-        blLore.add(ChatColor.GRAY + "Ability: " + ChatColor.DARK_AQUA + "Bash!");
-        blLore.add(ChatColor.GRAY + "Upon hitting a player during a critical hit, this axe will deal");
-        blLore.add(ChatColor.GRAY + "+1 damage for each non-chain armor piece worn by the victim.");
-        blMeta.setLore(blLore);
+        blMeta.setDisplayName(ChatColor.DARK_GREEN + "Bludgeon");
+        blMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
+        blMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Bash!" + ChatColor.GRAY + "Upon hitting a player during a critical hit, this weapon will deal +1 damage for each non-chain armor piece worn by the victim.\n" + ChatColor.GRAY + "Sharpness II", 30));
         blItem.setItemMeta(blMeta);
         NBTItem blNBT = new NBTItem(blItem);
         blNBT.setBoolean("Unbreakable", true);
@@ -344,18 +332,12 @@ public class Items extends JavaPlugin {
         return blNBT.getItem();
     }
     public static ItemStack getStomper() {
-        ItemStack stompItem = new ItemStack(Material.IRON_SWORD);
+        ItemStack stompItem = new ItemStack(Material.DIAMOND_SWORD);
+        stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
         ItemMeta stompMeta = stompItem.getItemMeta();
-        ArrayList<String> stomplore = new ArrayList<>();
         stompMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
-        stompMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
-        stomplore.add("");
-        stompMeta.setDisplayName(ChatColor.DARK_AQUA + "Stomper");
-        stomplore.add(ChatColor.GRAY + "Ability: " + ChatColor.DARK_AQUA + "Ground-Pound");
-        stomplore.add(ChatColor.GRAY + "Double-punch the same block to release a shock wave, damaging the closest enemy");
-        stomplore.add(ChatColor.GRAY + "(max of 7 blocks) for 4 true damage, and launching them upwards.");
-        stomplore.add(ChatColor.DARK_GRAY + "Cooldown: 7 seconds");
-        stompMeta.setLore(stomplore);
+        stompMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
+        stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block the release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness III"));
         stompItem.setItemMeta(stompMeta);
         NBTItem stompNBT = new NBTItem(stompItem);
         stompNBT.setBoolean("Unbreakable", true);
