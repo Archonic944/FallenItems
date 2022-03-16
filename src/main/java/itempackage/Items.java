@@ -142,12 +142,9 @@ public class Items extends JavaPlugin {
         customAttributes.setString("ID", "SCOUT_DAGGER");
         customAttributes.setString("UUID", UUID.randomUUID().toString());
         customAttributes.setBoolean("CAN_ENCHANT", true);
-        customAttributes.setFloat("ATTACK", 2f);
         customAttributes.setDouble("WEIGHT", 0.00);
         customAttributes.setDouble("WEIGHT_ADD", STARTER_WPH);
         di.setByte("Unbreakable",(byte)1);
-
-
         return di.getItem();
     }
 
