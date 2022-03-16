@@ -75,9 +75,8 @@ public class Items extends JavaPlugin {
         ItemStack dd = new ItemStack(Material.SKULL_ITEM);
         ItemMeta ddMeta = dd.getItemMeta();
         ddMeta.setDisplayName(ChatColor.YELLOW + "Death Defiance");
-        ddMeta.setLore(Arrays.asList("", ChatColor.YELLOW + "Ability: Is there no escape?", ChatColor.GRAY + "Upon your death, having one of these", ChatColor.GRAY + "in your inventory will revive you", ChatColor.GRAY + "and restore %20 of your health,", ChatColor.GRAY + "making you invulnerable for 2.5 seconds.", ChatColor.DARK_GRAY + "1 use only!"));
+        ddMeta.setLore(Arrays.asList("", ChatColor.YELLOW + "Ability: Is there no escape?", ChatColor.GRAY + "Upon your death, having one of these", ChatColor.GRAY + "in your inventory will revive you", ChatColor.GRAY + "and restore 40% of your health,", ChatColor.GRAY + "making you invulnerable for 2.5 seconds.", ChatColor.DARK_GRAY + "1 use only!"));
         dd.setItemMeta(ddMeta);
-
         NBTItem ddNBT = new NBTItem(dd);
         ddNBT.addCompound("CustomAttributes").setString("ID", "DEATH_DEFIANCE");
         ddNBT.getCompound("CustomAttributes").setString("UUID", UUID.randomUUID() + "");
@@ -386,7 +385,7 @@ public class Items extends JavaPlugin {
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         snackMeta.setDisplayName(ChatColor.DARK_BLUE + "Magic Snack");
-        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Munching on this strangely delicious snack will power up your next hit to inflict 2 seconds of weakness 1 and speed 1 on your opponent! " + ChatColor.ITALIC + "Wonder if it's FDA approved...", 35));
+        snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Munching on this strangely delicious snack will power up your next hit to inflict 2 seconds of weakness 1 on your opponent!\n" + ChatColor.ITALIC + "Wonder if it's FDA approved...", 35));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
         NBTCompound snackCompound = snackNBT.addCompound("CustomAttributes");
