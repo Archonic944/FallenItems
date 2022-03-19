@@ -129,7 +129,7 @@ public class Items extends JavaPlugin {
         dml.add(" ");
         dml.add(ChatColor.BLUE + "Attack Ability: Short Range");
         dml.add(ChatColor.DARK_GRAY + "This item is incredibly short range!");
-        dml.add(ChatColor.DARK_GRAY + "You can only hit players within " + ChatColor.BLUE + "1.5 blocks" + ChatColor.DARK_GRAY + " from you,");
+        dml.add(ChatColor.DARK_GRAY + "You can only hit players within " + ChatColor.BLUE + "2 blocks" + ChatColor.DARK_GRAY + " from you,");
         dml.add(ChatColor.DARK_GRAY + "but has a " + ChatColor.BLUE + "2x" + " damage bonus.");
         dml.add(ChatColor.GRAY + "Sharpness II");
         dm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE);
