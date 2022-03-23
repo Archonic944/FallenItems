@@ -315,7 +315,7 @@ public class Items extends JavaPlugin {
         ItemMeta blMeta = blItem.getItemMeta();
         blMeta.setDisplayName(ChatColor.DARK_GREEN + "Bludgeon");
         blMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
-        blMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Bash!" + ChatColor.GRAY + "Upon hitting a player during a critical hit, this weapon will deal +1 damage for each non-chain armor piece worn by the victim.\n" + ChatColor.GRAY + "Sharpness II", 30));
+        blMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Bash!\n" + ChatColor.GRAY + "Upon hitting a player during a critical hit, this weapon will deal +1 damage for each non-chain armor piece worn by the victim.\n" + ChatColor.GRAY + "Sharpness II", 30));
         blItem.setItemMeta(blMeta);
         NBTItem blNBT = new NBTItem(blItem);
         blNBT.setBoolean("Unbreakable", true);
