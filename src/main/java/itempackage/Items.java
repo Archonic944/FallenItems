@@ -331,6 +331,7 @@ public class Items extends JavaPlugin {
         ItemStack stompItem = new ItemStack(Material.DIAMOND_SWORD);
         stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
         ItemMeta stompMeta = stompItem.getItemMeta();
+        stompMeta.setDisplayName(ChatColor.DARK_GREEN + "Stomper");
         stompMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         stompMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
         stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block the release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness III"));
