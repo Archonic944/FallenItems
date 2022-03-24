@@ -124,21 +124,11 @@ public class Items extends JavaPlugin {
         ItemStack dagger = new ItemStack(Material.IRON_SWORD,1);
         dagger.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta dm = dagger.getItemMeta();
-        ArrayList<String> dml = new ArrayList<>();
-        dm.setDisplayName(ChatColor.AQUA + "Dagger");
-        dml.add(" ");
-        dml.add(ChatColor.BLUE + "Attack Ability: Short Range");
-        dml.add(ChatColor.DARK_GRAY + "This item is incredibly short range!");
-        dml.add(ChatColor.DARK_GRAY + "You can only hit players within " + ChatColor.BLUE + "2 blocks" + ChatColor.DARK_GRAY + " from you,");
-        dml.add(ChatColor.DARK_GRAY + "but has a " + ChatColor.BLUE + "2x" + " damage bonus.");
-        dml.add(ChatColor.GRAY + "Sharpness II");
         dm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE);
-        dm.setLore(dml);
+        dm.setLore(StringUtil.wrapLore("\n" + ChatColor.BLUE + "Ability: Short Range\n" + ChatColor.GRAY + "This item is incredibly short range!\nIt deals double damage hitting players from " + ChatColor.BLUE + "2 blocks" + ChatColor.GRAY + " or less, but is near ineffective otherwise.\n\nSharpness II" ));
         dagger.setItemMeta(dm);
-
         NBTItem di = new NBTItem(dagger);
         NBTCompound customAttributes = di.addCompound("CustomAttributes");
-
         customAttributes.setString("ID", "SCOUT_DAGGER");
         customAttributes.setString("UUID", UUID.randomUUID().toString());
         customAttributes.setBoolean("CAN_ENCHANT", true);
@@ -295,9 +285,9 @@ public class Items extends JavaPlugin {
         ItemStack sbItem = new ItemStack(Material.DIAMOND_SWORD);
         sbItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta sbMeta = sbItem.getItemMeta();
-        sbMeta.setDisplayName(ChatColor.DARK_BLUE + "Scout Blade");
+        sbMeta.setDisplayName(ChatColor.AQUA + "Scout Blade");
         sbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are facing away, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "Cooldown: 17 seconds\n§7Sharpness II"));
+        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are idle, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "No cooldown\n§7Sharpness II"));
         sbItem.setItemMeta(sbMeta);
         NBTItem sbNBT = new NBTItem(sbItem);
         sbNBT.setBoolean("Unbreakable", true);
