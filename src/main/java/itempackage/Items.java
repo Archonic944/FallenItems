@@ -124,6 +124,7 @@ public class Items extends JavaPlugin {
         ItemStack dagger = new ItemStack(Material.IRON_SWORD,1);
         dagger.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta dm = dagger.getItemMeta();
+        dm.setDisplayName(ChatColor.AQUA + "Dagger");
         dm.addItemFlags(ItemFlag.HIDE_ATTRIBUTES,ItemFlag.HIDE_ENCHANTS,ItemFlag.HIDE_UNBREAKABLE);
         dm.setLore(StringUtil.wrapLore("\n" + ChatColor.BLUE + "Ability: Short Range\n" + ChatColor.GRAY + "This item is incredibly short range!\nIt deals double damage hitting players from " + ChatColor.BLUE + "2 blocks" + ChatColor.GRAY + " or less, but is near ineffective otherwise.\n\nSharpness II" ));
         dagger.setItemMeta(dm);
