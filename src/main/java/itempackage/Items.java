@@ -165,7 +165,7 @@ public class Items extends JavaPlugin {
         return stubbornBoots;
     }
     public static ItemStack getCorruptedSword(){
-        ItemStack cblade = new ItemStack(Material.IRON_SWORD);
+        ItemStack cblade = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta cbMeta = cblade.getItemMeta();
         cbMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
         cbMeta.setDisplayName(ChatColor.RED + "Corrupted Sword");
