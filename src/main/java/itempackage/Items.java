@@ -320,7 +320,7 @@ public class Items extends JavaPlugin {
     }
     public static ItemStack getStomper() {
         ItemStack stompItem = new ItemStack(Material.DIAMOND_SWORD);
-        stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 3);
+        stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
         ItemMeta stompMeta = stompItem.getItemMeta();
         stompMeta.setDisplayName(ChatColor.DARK_GREEN + "Stomper");
         stompMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
