@@ -174,7 +174,7 @@ public class Items extends JavaPlugin {
         cbList.add(ChatColor.RED + "Ability: Combo-Stacker");
         cbList.add(ChatColor.GRAY + "The more hits you get against your opponent in a row,");
         cbList.add(ChatColor.GRAY + "the higher your damage will be multiplied.");
-        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "0.2x" + ChatColor.GRAY + " damage added to your multiplier per hit.");
+        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "20%" + ChatColor.GRAY + " damage added to your multiplier per hit.");
         cbList.add(ChatColor.GRAY + "Sharpness I");
         cbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
         cbMeta.setLore(cbList);
@@ -325,7 +325,7 @@ public class Items extends JavaPlugin {
         stompMeta.setDisplayName(ChatColor.DARK_GREEN + "Stomper");
         stompMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         stompMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block the release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness III"));
+        stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block to release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness II"));
         stompItem.setItemMeta(stompMeta);
         NBTItem stompNBT = new NBTItem(stompItem);
         stompNBT.setBoolean("Unbreakable", true);
@@ -333,7 +333,6 @@ public class Items extends JavaPlugin {
         stompComp.setString("UUID", UUID.randomUUID() + "");
         stompComp.setBoolean("CAN_ENCHANT", true);
         stompComp.setString("ID", "STOMPER");
-        stompComp.setDouble("WEIGHT", 0.00);
         stompComp.setDouble("WEIGHT", 0.00);
         stompComp.setDouble("WEIGHT_ADD", STARTER_WPH);
         return stompNBT.getItem();
@@ -489,7 +488,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_HELMET", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -504,7 +503,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_CHESTPLATE", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -519,7 +518,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_LEGGINGS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -534,7 +533,7 @@ public class Items extends JavaPlugin {
                 1, "FALLEN_BOOTS", true);
         LeatherArmorMeta meta = (LeatherArmorMeta) item.getItemMeta();
         meta.setColor(FALLEN_ARMOR_COLOR);
-        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 8, true);
+        meta.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL, 5, true);
         meta.spigot().setUnbreakable(true);
         meta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS, ItemFlag.HIDE_ATTRIBUTES);
         item.setItemMeta(meta);
@@ -542,6 +541,6 @@ public class Items extends JavaPlugin {
     }
 
     private static List<String> fallenLore(String piece){
-        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection VIII");
+        return StringUtil.wrapLore(ChatColor.GRAY + "\nThe " + piece + " worn to battle by the legendary ancient deities. Said to only be bestowed upon the truest of warriors.\n" + ChatColor.RED + "Ability: RISE" + "\n" + ChatColor.GOLD + "After reaching a 50 streak with all Fallen pieces unlocked, turn into a Risen Boss while wearing the full set by activating the Risen Core through the Kothy's menu. \n+0.25% defense bonus per piece per risen boss win.\n\nCurrent defense bonus: " + ChatColor.RED + "0%\n" + ChatColor.DARK_GRAY + "Max: 15%" + "\n\n" + ChatColor.GOLD + "Protection V");
     }
 }
