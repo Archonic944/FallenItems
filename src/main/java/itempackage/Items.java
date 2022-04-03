@@ -193,7 +193,7 @@ public class Items extends JavaPlugin {
         ItemStack bladeitem = new ItemStack(Material.DIAMOND_SWORD);
         ItemMeta bladeMeta = bladeitem.getItemMeta();
         bladeMeta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-        bladeMeta.setDisplayName(ChatColor.DARK_BLUE + "Wizard Blade (0)");
+        bladeMeta.setDisplayName(ChatColor.BLUE + "Wizard Blade (0)");
         bladeMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ENCHANTS);
         ArrayList<String> lore = new ArrayList<>();
         lore.add(" ");
@@ -372,7 +372,7 @@ public class Items extends JavaPlugin {
         snack.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
         ItemMeta snackMeta = snack.getItemMeta();
         snackMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
-        snackMeta.setDisplayName(ChatColor.DARK_BLUE + "Magic Snack");
+        snackMeta.setDisplayName(ChatColor.BLUE + "Magic Snack");
         snackMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Munching on this strangely delicious snack will power up your next hit to inflict 2 seconds of weakness 1 on your opponent!\n" + ChatColor.ITALIC + "Wonder if it's FDA approved...", 35));
         snack.setItemMeta(snackMeta);
         NBTItem snackNBT = new NBTItem(snack);
