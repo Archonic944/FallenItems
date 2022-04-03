@@ -50,7 +50,7 @@ public class Items extends JavaPlugin {
         mwlore.add(ChatColor.DARK_GRAY + "On hit, can either apply a good effect");
         mwlore.add(ChatColor.DARK_GRAY + "or a bad effect to your opponent.");
         mwlore.add("");
-        mwlore.add(ChatColor.GRAY + "Cooldown: " + ChatColor.RED + "5 Seconds");
+        mwlore.add(ChatColor.GRAY + "Cooldown: " + ChatColor.RED + "3 Seconds");
 
         mwm.setLore(mwlore);
         mwm.addEnchant(Enchantment.PROTECTION_ENVIRONMENTAL,1,true);
