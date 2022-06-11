@@ -40,6 +40,12 @@ public class Items extends JavaPlugin {
         return scoutgoggleNBT.getItem();
     }
 
+    public static ItemStack getSpiritBottle(){
+        ItemStack bottle = MiscUtils.generateItem(Material.GLASS_BOTTLE, ChatColor.YELLOW + "Spirit Bottle", StringUtil.wrapLore("\n" + ChatColor.GRAY + "A strange-looking bottle that can be filled with your current location and streak. Right-click to use. Be careful, though, since using it will " + ChatColor.RED + "respawn you immediately!"), (byte) -1, 1, "SPIRIT_BOTTLE");
+        bottle.addUnsafeEnchantment(Enchantment.PROTECTION_ENVIRONMENTAL, 1);
+        return bottle;
+    }
+
     public static ItemStack getMagicWand(){
         ItemStack MagicWand = new ItemStack(Material.STICK);
         ItemMeta mwm = MagicWand.getItemMeta();
