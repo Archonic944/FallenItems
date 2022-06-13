@@ -159,15 +159,11 @@ public class Items extends JavaPlugin {
         stubbornBoots.setItemMeta(sbm);
         NBTItem nbtStubbornBoots = new NBTItem(stubbornBoots);
         nbtStubbornBoots.setBoolean("Unbreakable",true);
-
         NBTCompound nbtCustomAttr = nbtStubbornBoots.addCompound("CustomAttributes");
         nbtCustomAttr.setString("ID","STUBBORN_BOOTS");
         nbtCustomAttr.setString("UUID",UUID.randomUUID().toString());
         nbtCustomAttr.setBoolean("CAN_ENCHANT",true);
         stubbornBoots = nbtStubbornBoots.getItem();
-
-
-
         return stubbornBoots;
     }
     public static ItemStack getCorruptedSword(){
@@ -180,7 +176,7 @@ public class Items extends JavaPlugin {
         cbList.add(ChatColor.RED + "Ability: Combo-Stacker");
         cbList.add(ChatColor.GRAY + "The more hits you get against your opponent in a row,");
         cbList.add(ChatColor.GRAY + "the higher your damage will be multiplied.");
-        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "20%" + ChatColor.GRAY + " damage added to your multiplier per hit.");
+        cbList.add(ChatColor.GRAY + "+" + ChatColor.RED + "10%" + ChatColor.GRAY + " damage added to your multiplier per hit.");
         cbList.add(ChatColor.GRAY + "Sharpness I");
         cbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
         cbMeta.setLore(cbList);
@@ -326,12 +322,12 @@ public class Items extends JavaPlugin {
     }
     public static ItemStack getStomper() {
         ItemStack stompItem = new ItemStack(Material.DIAMOND_SWORD);
-        stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 2);
+        stompItem.addUnsafeEnchantment(Enchantment.DAMAGE_ALL, 1);
         ItemMeta stompMeta = stompItem.getItemMeta();
         stompMeta.setDisplayName(ChatColor.DARK_GREEN + "Stomper");
         stompMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE);
         stompMeta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block to release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness II"));
+        stompMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.DARK_AQUA + "Ability: Ground-Pound\n" + ChatColor.GRAY + "Double-punch the same block to release a shock wave, damaging the closest enemy (within 7 blocks) and knocking them upwards." + ChatColor.DARK_GRAY + "\nCooldown: 7 seconds\n§7Sharpness I"));
         stompItem.setItemMeta(stompMeta);
         NBTItem stompNBT = new NBTItem(stompItem);
         stompNBT.setBoolean("Unbreakable", true);
