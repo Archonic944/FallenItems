@@ -290,7 +290,7 @@ public class Items extends JavaPlugin {
         ItemMeta sbMeta = sbItem.getItemMeta();
         sbMeta.setDisplayName(ChatColor.AQUA + "Scout Blade");
         sbMeta.addItemFlags(ItemFlag.HIDE_UNBREAKABLE, ItemFlag.HIDE_ATTRIBUTES, ItemFlag.HIDE_ENCHANTS);
-        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are idle, inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "No cooldown\n§7Sharpness II"));
+        sbMeta.setLore(StringUtil.wrapLore("\n" + ChatColor.GRAY + "Ability: " + ChatColor.BLUE + "Hunter's Kiss\n" + ChatColor.GRAY + "Upon hitting a player while they are idle (and not blocking), inflict extreme blindness for 2 seconds and deal extra damage.\n" + ChatColor.DARK_GRAY + "No cooldown\n§7Sharpness II"));
         sbItem.setItemMeta(sbMeta);
         NBTItem sbNBT = new NBTItem(sbItem);
         sbNBT.setBoolean("Unbreakable", true);
